@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fun_dsa_app/algorithms/binary_search.dart';
+import 'package:fun_dsa_app/algorithms/crystal_ball_search.dart';
 import 'package:fun_dsa_app/algorithms/linear_search.dart';
 
 void main() {
@@ -31,16 +33,31 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String? centeredText;
 
+  final listOfInt = List.generate(100, (index) => index);
+  final listOfBool = [false, false, false, false, false, false, true, true];
+
   void linearSearch() {
-    var listOfInt = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     var linearSearch = LinearSearch();
     centeredText = linearSearch.search(listOfInt, 5).toString();
-    //centeredText = linearSearch.search(listOfInt, 50).toString();
+    centeredText = linearSearch.search(listOfInt, 500).toString();
+  }
+
+  void binarySearch() {
+    var binarySearch = BinarySearch();
+    centeredText = binarySearch.search(listOfInt, 5).toString();
+    centeredText = binarySearch.search(listOfInt, 500).toString();
+  }
+
+  void crystalBallSearch() {
+    var crystalBallSearch = CrystalBallSearch();
+    centeredText = crystalBallSearch.search(listOfBool).toString();
   }
 
   onButtonPressed() {
     setState(() {
-      linearSearch();
+      //linearSearch();
+      //binarySearch();
+      crystalBallSearch();
     });
   }
 
