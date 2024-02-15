@@ -1,5 +1,4 @@
 class BinarySearch {
-  // Assumption: this is a sorted array
   bool search(List<int> hayStack, int needle) {
     var searchResult = false;
     int low = 0, high = hayStack.length;

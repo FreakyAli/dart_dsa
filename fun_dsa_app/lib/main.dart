@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:fun_dsa_app/algorithms/binary_search.dart';
+import 'package:fun_dsa_app/algorithms/bubble_sort.dart';
 import 'package:fun_dsa_app/algorithms/crystal_ball_search.dart';
 import 'package:fun_dsa_app/algorithms/linear_search.dart';
 
@@ -53,11 +56,18 @@ class _MyHomePageState extends State<MyHomePage> {
     centeredText = crystalBallSearch.search(listOfBool).toString();
   }
 
+  void bubbleSort() {
+    var bubbleSort = BubbleSort();
+    var listOfRandomInt = randomGeneratedIntegers();
+    centeredText = bubbleSort.sort(listOfRandomInt).toString();
+  }
+
   onButtonPressed() {
     setState(() {
       //linearSearch();
       //binarySearch();
-      crystalBallSearch();
+      //crystalBallSearch();
+      bubbleSort();
     });
   }
 
@@ -106,4 +116,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+}
+
+List<int> randomGeneratedIntegers() {
+  var rng = Random();
+  var l = List.generate(10, (_) => rng.nextInt(100));
+  return l;
 }
